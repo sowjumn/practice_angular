@@ -1,0 +1,22 @@
+<html ng-app="nameApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Angular.js Scoping</title>
+		<script src="angular.min.js"></script>
+		<script>
+			var nameApp = angular.module('nameApp', []);
+			nameApp.controller('NameCtrl', function($scope) {
+				$scope.firstName = "Jonathan";
+				$scope.lastName = "Smith";
+			});
+		</script>
+	</head>
+
+	<body ng-controller="NameCtrl">
+		First Name:<input ng-model="firstName" type="text"/>
+		<br>
+		Last Name:<input ng-model="lastName" type="text"/>
+		<br>
+		Hi!!!{{firstName}} {{lastName}}
+	</body>
+</html>

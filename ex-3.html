@@ -1,0 +1,21 @@
+<html ng-app>
+	<head>
+		<meta charset="utf-8">
+		<title>Angular.js Example</title>
+		<script src='angular.min.js'></script>
+		<script>
+			function NameCtrl($scope) {
+				$scope.fName = 'John';
+				$scope.lName = 'Smith';
+			}
+		</script>
+	</head>
+
+	<body ng-controller="NameCtrl">
+		Last Name:<input ng-model="lName" type="text"/>
+		<br>
+		First Name:<input ng-model="fName" type="text"/>
+		<br>
+		Hello {{lName}} {{fName}}
+	</body>
+</html>
