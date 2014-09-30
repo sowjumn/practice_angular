@@ -1,0 +1,35 @@
+<html ng-app='countryApp'>
+	<head>
+		<meta charset='utf-8'>
+		<title>Angular search</title>
+		<script src='angular.min.js'></script>
+		<script>
+			var countryApp = angular.module('countryApp', []);
+			countryApp.controller('CountryCtrl', function($scope) {
+				$scope.countries = [
+					{ name: 'USA', population: 4000000 },
+					{ name: 'INDIA', population: 60000000 },
+					{ name: 'China', population: 10000000000 },
+					{ name: 'Netherlands', population: 300000 }
+				];
+
+				$scope.sortField = 'population';
+				$scope.reverse = true;
+			});
+		</script>
+	</head>
+
+	<body ng-controller="CountryCtrl">
+		Search: <input ng-model='query' type="text" />
+		<table>
+			<tr>
+				<th><a href="" ng-click="sortField = 'name'; reverse = !reverse">Name</a></th>
+				<th><a href="" ng-click="sortField = 'population'; reverse = !reverse">Population</a></th>
+			</tr>
+			<tr ng-repeat='country in countries | filter:query | orderBy:sortField:reverse'>
+				<td>{{country.name}}</td>
+				<td>{{country.population}}</td>
+			</tr>
+		</table>
+	</body>
+</html>
